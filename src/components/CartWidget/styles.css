@@ -1,0 +1,10 @@
+.cart-container{
+    height:35px;
+    align-self: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.cart-icon{
+    height: 100%;
+}
