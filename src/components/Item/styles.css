@@ -1,0 +1,26 @@
+.card-product{
+    width: 100%;
+    padding-bottom: 20px;
+    cursor: pointer;
+    transition: 300ms;
+    overflow: hidden;
+}
+
+.card-product:hover{
+    box-shadow: 0px 0px 16px  rgba(39,39,39,0.15);
+}
+
+.card-product img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.product-info{
+    padding: 0px 20px;
+}
+
+.product-name{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}

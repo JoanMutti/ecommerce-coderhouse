@@ -6,6 +6,7 @@ const NavBar = () => {
   return (
     <header className='header' >
       <h1 className='brand'>VM</h1>
+      <p className='sub-brand'>Indumentaria</p>
       <nav className='nav'>
         <p>Home</p>
         <p>Productos</p>

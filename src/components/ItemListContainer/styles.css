@@ -1,11 +1,11 @@
 .container{
     width: 100%;
-    height: calc(100vh - 60px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 30px;
+    height: 100vh;
 }
 
-.container h3{
-    font-size: 80px;
+.title{
+    font-size:40px;
+    font-weight: 400;
+    margin: 35px 0px;
 }

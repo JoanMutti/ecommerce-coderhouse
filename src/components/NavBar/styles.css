@@ -21,6 +21,12 @@
     cursor: pointer;
 }
 
+.sub-brand{
+    font-size: 14px;
+    margin-left: 3px;
+    align-self: flex-end;
+}
+
 .nav p {
     color: #bbb;
     height: fit-content;
