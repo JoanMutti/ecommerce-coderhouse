@@ -2,6 +2,7 @@
 ​
 VM Indumentaria es un e-commerce para la venta de ropa, tal como pantalones, remeras, camisas, zapatillas o medias.
 ​
+
 Cuenta con
 ​
 - Filtro por categorías: tomando las categorías del archivo data se generan filtros de productos
