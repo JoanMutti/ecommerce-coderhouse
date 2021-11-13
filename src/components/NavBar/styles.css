@@ -52,3 +52,45 @@
     box-shadow: 4px 24px 60px rgba(41, 2, 92, 0.25);
     border-radius: 15px;
 }
+
+
+
+@media screen and (max-width: 480px) {
+    .nav{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        background-color: #f6f6f6;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        transition: ease 1s;
+        width: 300px;
+        padding: 30px 20px;
+    }
+    .header{
+        padding: 8px 10px;
+    }
+    .header i{
+        margin-left: auto;
+        display: flex;
+        align-items:flex-end;
+        justify-content: center;
+        margin-right: 10px;
+    }
+
+    .menu-opener{
+        width: 40px;
+    }
+
+    .open-menu{
+        right: 0;
+        box-shadow: -2px 0px 25px rgba(39, 39, 39, 0.25);
+    }
+    
+    .close-menu{
+        right: -100%;
+    }
+
+    
+}

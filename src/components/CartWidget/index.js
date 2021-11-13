@@ -2,10 +2,10 @@ import React from 'react'
 import './styles.css'
 
 
-const CartWidget = () => {
+const CartWidget = ({setCartOpen}) => {
     return (
-        <div className="cart-container">
-            <img src='./assets/images/carrito-de-compras.png' alt="carrito de compras" className='cart-icon' /> 
+        <div className="cart-container" onClick={() => setCartOpen(true)}>
+            <img src='/assets/images/cart.svg' alt="carrito de compras" className='cart-icon' /> 
         </div>
     )
 }

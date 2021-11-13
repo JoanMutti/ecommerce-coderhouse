@@ -82,3 +82,16 @@
 .big-card-category:hover p{
     transform: scale(1.2)
 }
+
+@media screen and (max-width: 480px) {
+    .big-categories-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .big-card-category{
+        height: 150px;
+    }
+    .big-card-category p{
+        font-size: 30px;
+    }
+  }

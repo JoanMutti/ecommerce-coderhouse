@@ -3,6 +3,7 @@ import './styles.css'
 import ItemList from '../ItemList'
 import data from '../../data/data'
 import {useParams} from 'react-router-dom'
+import Loading from '../Loading'
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
@@ -23,7 +24,7 @@ const ItemListContainer = () => {
 
     return (
         <div className='container'>
-            {products.length > 0 ? <ItemList products={products}/> : <h4>Cargando....</h4>}
+            {products.length > 0 ? <ItemList products={products}/> : <Loading />}
         </div>
     )
 }

@@ -5,3 +5,9 @@
     grid-gap: 25px;
     padding: 10px;
 }
+
+@media screen and (max-width: 480px) {
+    .list-items{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
