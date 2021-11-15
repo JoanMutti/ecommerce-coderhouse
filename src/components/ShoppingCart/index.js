@@ -4,15 +4,9 @@ import './styles.css'
 import { Link } from 'react-router-dom'
 
 function ShoppingCart({cartOpen, setCartOpen}) {
-    const [products, setProducts] = useProducts()
+    const {products, removeProduct, clearProducts, getSubtotal} = useProducts()
 
-    const removeProduct = (product) => {
-        setProducts(prev => prev.filter(ele => ele.product.id !== product.id))
-    }
-
-    const clearProducts = () => {
-        setProducts([])
-    }
+    
 
     return (
         <div className={`cart ${cartOpen ? 'open' : 'close'}`}>
@@ -40,7 +34,7 @@ function ShoppingCart({cartOpen, setCartOpen}) {
             </div>
             <div className='subtotal-cart'>
                 <h3>Subtotal:</h3>
-                <p>$ {products.map(e => e.product.price * e.count).reduce(((x,y) => x + y), 0) }</p>
+                <p>$ {getSubtotal()}</p>
             </div>
             {products.length > 0 && <div className='btn-comprar fin-compra-cart'><Link to={'/cart'} >Finalizar Compra</Link></div>}
             

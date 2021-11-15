@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 import './styles.css'
 import ItemCount from '../ItemCount'
+import {useProducts} from '../../hooks/useProducts'
 
-function ItemDetail({product, onClickAddToCart}) {
+function ItemDetail({product}) {
     const {pictureUrl, title, description, price} = product
-
+    const {addProduct} = useProducts()
     const [count, setCount] = useState(1)
+
+
 
     const handleCountClick = (e) => {
         if(e.target.id === 'plus'){
@@ -26,7 +29,7 @@ function ItemDetail({product, onClickAddToCart}) {
                     <button className='btn-comprar' 
                         onClick={(e) => {
                             e.preventDefault()
-                            onClickAddToCart({product, count})
+                            addProduct({product, count})
                         }}>
                             Agregar al Carrito
                     </button>
