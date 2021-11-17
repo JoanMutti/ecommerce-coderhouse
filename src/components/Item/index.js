@@ -10,7 +10,7 @@ const Item = ({product}) => {
                 <img src={pictureUrl} alt={title}/>
                 <div className="product-info">
                     <p className="product-name">{title}</p>
-                    <p>$ {price.toLocaleString('en-US')}</p>
+                    <p>$ {price?.toLocaleString('en-US')}</p>
                 </div>
             </div>
         </Link>

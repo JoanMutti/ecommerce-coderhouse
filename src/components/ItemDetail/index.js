@@ -4,10 +4,11 @@ import ItemCount from '../ItemCount'
 import {useProducts} from '../../hooks/useProducts'
 
 function ItemDetail({product}) {
-    const {pictureUrl, title, description, price} = product
-    const {addProduct} = useProducts()
+    const {id, pictureUrl, title, description, price} = product
+    const {addProduct, products} = useProducts()
     const [count, setCount] = useState(1)
 
+    console.log(id)
 
 
     const handleCountClick = (e) => {
@@ -33,7 +34,7 @@ function ItemDetail({product}) {
                         }}>
                             Agregar al Carrito
                     </button>
-                    <ItemCount count={count} onClickCount={handleCountClick} />
+                    {!products.some(e => e.product.id === id) && <ItemCount count={count} onClickCount={handleCountClick} />}
                 </div>
                 <h3>Descripción</h3>
                 <p className="description-product-detail">{description}</p>

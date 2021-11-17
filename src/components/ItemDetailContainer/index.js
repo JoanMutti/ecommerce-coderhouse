@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import './styles.css'
-import data from '../../data/data'
+import { collection, query, getDocs, where } from "firebase/firestore";
+import {getFirestoreDb} from '../../lib/firebaseConfig'
 import ItemDetail from '../ItemDetail'
 import { useParams } from 'react-router-dom'
 import Loading from '../Loading'
 
 
 const ItemDetailContainer = () => {
+    const db = getFirestoreDb()    
     const [product, setProduct] = useState({})
-    const {itemId} = useParams()    
+    const {itemId} = useParams()
 
     useEffect(() => {
-        const getItems = new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(data)
-            }, 2000)
-        })
-
-        getItems.then(res => {
-            setProduct(res.find(i => i.id === itemId))
-        })
-    }, [itemId])
+        const getProductById = async () => {
+          const queryCollection  = query(collection(db, 'products'), where('id', '==', `${itemId}`));
+          const querySnapshot = await getDocs(queryCollection);
+          let aux = {};
+          querySnapshot.forEach((doc) => {
+            aux = {...doc.data()}
+          });
+          setProduct(aux);
+        }
+        getProductById();
+    }, [itemId, db]);
 
     return (
         <div>
