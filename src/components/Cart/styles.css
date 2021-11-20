@@ -40,6 +40,10 @@
     padding: 7px 0px;
 }
 
+.product-in-cart img{
+    cursor: pointer;
+}
+
 .total{
     font-size: 22px;
     font-weight: 500;

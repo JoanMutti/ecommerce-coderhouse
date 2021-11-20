@@ -2,12 +2,14 @@ import React, {useState} from 'react'
 import './styles.css'
 import ItemCount from '../ItemCount'
 import {useProducts} from '../../hooks/useProducts'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 function ItemDetail({product}) {
     const {id, pictureUrl, title, description, price} = product
     const {addProduct, products} = useProducts()
     const [count, setCount] = useState(1)
+    const history = useHistory()
+
 
     const handleCountClick = (e) => {
         if(e.target.id === 'plus'){
@@ -34,8 +36,8 @@ function ItemDetail({product}) {
                             Agregar al Carrito
                     </button>
                     :
-                    <div className='btn-comprar go-cart'>
-                        <Link to={`/cart/`}>Ver el carrito</Link>
+                    <div className='btn-comprar go-cart' onClick={() => history.push('/cart')} >
+                        <p>Ver el carrito</p>
                     </div>
                     }
                     {!products.some(e => e.product.id === id) && <ItemCount count={count} onClickCount={handleCountClick} />}

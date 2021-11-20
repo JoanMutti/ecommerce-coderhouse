@@ -101,6 +101,7 @@
 }
 
 .delete-item{
+    cursor: pointer;
     position: absolute;
     top:3px;
     right:3px;
