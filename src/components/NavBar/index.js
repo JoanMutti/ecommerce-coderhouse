@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import './styles.css'
 import CartWidget from '../CartWidget/'
 import { Link, NavLink } from "react-router-dom";
+import {useProducts} from '../../hooks/useProducts'
 
 const NavBar = ({setCartOpen, width}) => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const {getCantItems} = useProducts()
   const categories = [
     {id: 'UkyZYfNqAy', address: '/', text: 'Home'},
     {id: 'n1I9pmaFPc', address: '/products', text: 'Productos'},
     {id: 'QnX1y1NOiQ', address: '/contact', text: 'Contacto'},
   ]
-  
-  console.log(menuOpen, width)
 
   return (
     <header className='header' >
@@ -30,7 +30,7 @@ const NavBar = ({setCartOpen, width}) => {
           )
         })}
       </nav>
-      <CartWidget setCartOpen={setCartOpen} />
+      {getCantItems() > 0 && <CartWidget setCartOpen={setCartOpen} />}
     </header>
   );
 };

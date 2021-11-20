@@ -1,18 +1,17 @@
 .cart{
     position: fixed;
     top: 0;
-    right: -100%;
     height: 100%;
     background-color: #f6f6f6;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    transition: ease 1s;
+    transition: ease 500ms;
     width: 300px;
     padding: 30px 20px;
 }
 
 .close {
-    right: -100%;
+    right: -301px;
 }
 
 .open {

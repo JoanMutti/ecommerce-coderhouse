@@ -3,7 +3,7 @@ import ItemDetailContainer from '../components/ItemDetailContainer'
 import Layout from '../components/Layout'
 
 function Products() {
-
+    
 
     return (
         <Layout>

@@ -3,8 +3,24 @@
     align-self: center;
     padding: 5px;
     cursor: pointer;
+    position: relative;
 }
 
 .cart-icon{
     height: 100%;
+}
+
+.cantidad-items{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ab1212;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
 }

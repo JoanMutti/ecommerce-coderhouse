@@ -2,14 +2,12 @@ import React, {useState} from 'react'
 import './styles.css'
 import ItemCount from '../ItemCount'
 import {useProducts} from '../../hooks/useProducts'
+import { Link } from 'react-router-dom'
 
 function ItemDetail({product}) {
     const {id, pictureUrl, title, description, price} = product
     const {addProduct, products} = useProducts()
     const [count, setCount] = useState(1)
-
-    console.log(id)
-
 
     const handleCountClick = (e) => {
         if(e.target.id === 'plus'){
@@ -27,6 +25,7 @@ function ItemDetail({product}) {
                 <p className="name-product-detail">{title}</p>
                 <p className='price-product-detail'>$ {price.toLocaleString('en-US')}</p>
                 <div className="price-quantity">
+                    {!products.some(e => e.product.id === id) ?
                     <button className='btn-comprar' 
                         onClick={(e) => {
                             e.preventDefault()
@@ -34,6 +33,11 @@ function ItemDetail({product}) {
                         }}>
                             Agregar al Carrito
                     </button>
+                    :
+                    <div className='btn-comprar go-cart'>
+                        <Link to={`/cart/`}>Ver el carrito</Link>
+                    </div>
+                    }
                     {!products.some(e => e.product.id === id) && <ItemCount count={count} onClickCount={handleCountClick} />}
                 </div>
                 <h3>Descripción</h3>

@@ -3,16 +3,17 @@ import './styles.css'
 import { collection, query, getDocs, where } from "firebase/firestore";
 import {getFirestoreDb} from '../../lib/firebaseConfig'
 import ItemDetail from '../ItemDetail'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import Loading from '../Loading'
 
 
 const ItemDetailContainer = () => {
+    const history = useHistory()
     const db = getFirestoreDb()    
     const [product, setProduct] = useState({})
     const {itemId} = useParams()
 
-    useEffect(() => {
+    useEffect(() => { 
         const getProductById = async () => {
           const queryCollection  = query(collection(db, 'products'), where('id', '==', `${itemId}`));
           const querySnapshot = await getDocs(queryCollection);
@@ -20,10 +21,11 @@ const ItemDetailContainer = () => {
           querySnapshot.forEach((doc) => {
             aux = {...doc.data()}
           });
+          !aux.id && history.push('/404')
           setProduct(aux);
         }
         getProductById();
-    }, [itemId, db]);
+    }, [itemId, db, history]);
 
     return (
         <div>
