@@ -36,7 +36,7 @@ function ShoppingCart({cartOpen, setCartOpen}) {
                 <h3>Subtotal:</h3>
                 <p>$ {getSubtotal()}</p>
             </div>
-            {products.length > 0 && <div className='btn-comprar fin-compra-cart'><Link to={'/cart'} >Finalizar Compra</Link></div>}
+            {products.length > 0 && <div className='btn-comprar fin-compra-cart' onClick={() => setCartOpen(false)}><Link to={'/cart'} >Finalizar Compra</Link></div>}
             
         </div>
     )

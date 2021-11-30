@@ -2,8 +2,6 @@ import React from 'react'
 import './styles.css'
 
 function ItemCount({count, onClickCount, product}) {
-    
-    console.log(count)
 
     return (
         <div className="quantity">

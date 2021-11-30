@@ -32,16 +32,11 @@
 .big-categories-container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 250px 250px 150px;
+    grid-template-rows: 250px 250px;
     column-gap: 20px;
     row-gap: 20px;
     padding: 10px;
     margin: 30px 0px;
-}
-
-.big-categories-container a:last-child{
-    grid-column-start: 1;
-    grid-column-end: 3;
 }
 
 .big-card-category{
@@ -64,9 +59,6 @@
 }
 .big-card-category:nth-child(4){
     background-image: url(../../assets/camisas.png);
-}
-.big-card-category:nth-child(5){
-    background-image: url(../../assets/medias.png);
 }
 
 .big-card-category p{
@@ -93,5 +85,18 @@
     }
     .big-card-category p{
         font-size: 30px;
+    }
+
+    .product-categories{
+        display: block;
+        text-align: center;
+    }
+
+    .product-categories a{
+        display: inline-block;
+        padding: 5px 10px;
+        box-shadow: 1px 1px 5px rgba(41, 2, 92, 0.25);
+        margin: 5px;
+        border-radius: 25px;
     }
   }

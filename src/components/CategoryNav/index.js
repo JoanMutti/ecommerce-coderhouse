@@ -19,10 +19,6 @@ const productCategories = [
        category: 'camisas',
        id: 'AxbLrKW24U' 
     },
-    {
-        category: 'medias',
-        id: 'Eqc4wE4XVU' 
-     },
 ]
 
 function CategoryNav({containerClass, categoryClass}) {

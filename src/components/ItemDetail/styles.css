@@ -53,3 +53,25 @@
     font-weight: 500;
     width: 200px;
 }
+
+@media screen and (max-width: 480px){
+    .item-card-detail{
+        display: flex;
+        flex-direction: column;
+    }
+    .item-card-detail img{
+        width: 300px;
+    }
+
+    .info-product-detail{
+        width: 100%;
+        padding: 0px 10px;
+    }
+
+    .name-product-detail{
+        font-size: 27px;
+    }
+    .description-product-detail{
+        margin-bottom: 20px;
+    }
+}

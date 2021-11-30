@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { addDoc } from 'firebase/firestore'
 import {useProducts} from '../../hooks/useProducts'
 import ItemCount from '../ItemCount'
 import './styles.css'
+import { getCollection, getFirestoreDb } from '../../lib/firebaseConfig'
+import BuyerForm from '../BuyerForm'
 
-function Cart() {
-    const {products, getSubtotal, addOne, removeOne, removeProduct} = useProducts()
+function Cart({width}) {
+    const {products, getSubtotal, addOne, removeOne, removeProduct, clearProducts} = useProducts()
     const history = useHistory()
+    const [showFormBuyer, setShowFormBuyer] = useState(false)
 
 
     const handleCountClick = (e, productId) => {
@@ -17,8 +21,24 @@ function Cart() {
         }
     } 
 
+    const buyProduct = async (buyer) => {
+        try {
+            const db = getFirestoreDb()
+            const collection = getCollection(db, 'orders')
+            await addDoc(collection, {
+                buyer,
+                items: products?.map(product => product),
+                total: Number.parseInt(getSubtotal().replace(',',''))
+            })
+            clearProducts()
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className='cart-container-out'>
+            {showFormBuyer && <BuyerForm setShowFormBuyer={setShowFormBuyer} buyProduct={buyProduct} />}
             <h2>Mi carrito</h2>
             {products.length > 0 ?
                 <div className="cart-container-in">
@@ -32,7 +52,11 @@ function Cart() {
                                     <ItemCount count={count} onClickCount={handleCountClick} product={product.id}/>
                                 </div>
                                 <p className="price-product-wq">$ {product.price.toLocaleString('en-US')}</p>
-                                <button className='btn-comprar delete-product' onClick={() => removeProduct(product)}>Eliminar producto</button>
+                                {width > 480 ? 
+                                    <button className='btn-comprar delete-product' onClick={() => removeProduct(product)}>Eliminar producto</button> 
+                                :
+                                    <i className='delete-item cart-delete-item' onClick={() => removeProduct(product)}><img src='/assets/images/minus.svg' alt='remove item' /></i>
+                                }
                             </div>
                             )
                         })}
@@ -47,7 +71,7 @@ function Cart() {
                             <p className="total">Total</p>
                             <p className="total">$ {getSubtotal()}</p>
                         </div>
-                        <button className='btn-comprar pagar'>Pagar</button>
+                        <button className='btn-comprar pagar' onClick={() => setShowFormBuyer(true)} >Pagar</button>
                     </div>
                 </div>
             :

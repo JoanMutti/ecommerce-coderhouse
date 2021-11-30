@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 export const AppContext = React.createContext({})
 
 export default function AppContextProvider({children}){
     const [products, setProducts] = React.useState([])
+
+    useEffect(() => {
+        localStorage.getItem('cart') && setProducts(JSON.parse(localStorage.getItem('cart')))
+    }, [])
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(products))
+        products.length === 0 && localStorage.removeItem('cart')
+    }, [products])
 
     const addOne = (productId) => {
         const aux = products.map( ele => ele.product.id === productId ? {product: ele.product, count: ele.count+1} : ele)

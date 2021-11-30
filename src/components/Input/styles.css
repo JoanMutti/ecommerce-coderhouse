@@ -1,0 +1,26 @@
+.input-container{
+    display: flex;
+    margin-top: 20px;
+}
+
+.input-container input{
+    width: 300px;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin-left: auto;
+}
+
+.input-container label{
+    font-weight: 500;
+    margin-right: 25px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 480px){
+    .input-container input{
+        width: 200px;
+    }
+    .input-container{
+        flex-direction: column;
+    }
+}

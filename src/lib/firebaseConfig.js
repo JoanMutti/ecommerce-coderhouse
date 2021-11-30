@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-import { getFirestore } from "firebase/firestore";
+import { collection, getFirestore } from "firebase/firestore";
 import 'firebase/compat/auth'
 import 'firebase/compat/firestore'
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,7 +25,13 @@ const getFirestoreDb = () => {
     return getFirestore(app)
 }
 
+//method to return collection
+const getCollection = (db, path) => {
+  return collection(db,path)
+}
+
 export {
     app,
     getFirestoreDb,
+    getCollection
 }

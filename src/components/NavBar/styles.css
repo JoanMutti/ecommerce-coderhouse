@@ -56,6 +56,15 @@
 
 
 @media screen and (max-width: 480px) {
+    .active{
+        background-color: #f6f6f6 ;
+        box-shadow: none;
+    }
+    .active p{
+        width: fit-content;
+        border-bottom: 2px solid #29025c;
+    }
+
     .nav{
         position: fixed;
         top: 0;
@@ -67,6 +76,8 @@
         transition: ease 1s;
         width: 300px;
         padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
     }
     .header{
         padding: 8px 10px;
@@ -92,5 +103,12 @@
         right: -100%;
     }
 
+    .text-link{
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 0;
+        color: rgba(39, 39, 39, 1) !important;
+        font-size: 35px;
+    }
     
 }

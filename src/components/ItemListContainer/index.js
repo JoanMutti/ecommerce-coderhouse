@@ -22,7 +22,6 @@ const ItemListContainer = () => {
             return aux
         }
         getProductsFirestore().then(productsDb => {
-            // console.log(productsDb)
             // categoryId ? setProducts(productsDb.filter(product => productsDb.category === categoryId)) : 
             setProducts(productsDb)
         })

@@ -6,6 +6,7 @@ import ProductDetail from './pages/ProductDetail';
 import AppContextProvider from './context/AppContext';
 import Cart from './pages/CartPage'
 import Page404 from './pages/Page404'
+import Contact from './pages/Contact'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/products/:categoryId" component={Products} />
           <Route exact path="/item/:itemId" component={ProductDetail} />
           <Route exact path="/cart/" component={Cart} />
+          <Route exact path="/contact/" component={Contact} />
           <Route exact path="*" component={Page404} />
             {/* <Redirect to='/' />  Puedo redirigir directamente a otra pagina */}
           {/* </Route> */}

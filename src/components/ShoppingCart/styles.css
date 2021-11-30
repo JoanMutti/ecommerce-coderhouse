@@ -7,7 +7,7 @@
     -webkit-overflow-scrolling: touch;
     transition: ease 500ms;
     width: 300px;
-    padding: 30px 20px;
+    padding: 30px 15px;
 }
 
 .close {
@@ -49,7 +49,7 @@
     display: flex;
     align-items: center;
     height: 70px;
-    font-weight: 500;
+    font-weight: 400;
     background-color: #fafafa;
     box-shadow: 0px 0px 25px rgba(39, 39, 39, 0.15);
     margin-top: 10px;
@@ -60,12 +60,13 @@
 }
 
 .name-quantity{
-    font-size: 15px;
-    margin-left: 20px;
+    font-size: 12px;
+    margin-left: 10px;
+    min-width: 120px;
 }
 
 .name-product-cart{
-    font-size: 15px;
+    font-size: 12px;
     margin-bottom: 8px;
    
 }
@@ -73,6 +74,7 @@
 .price-product-cart{
     margin-left: auto;
     margin-right: auto;
+    min-width: 70px;
 }
 
 .subtotal-cart{
