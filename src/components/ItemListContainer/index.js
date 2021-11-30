@@ -3,11 +3,12 @@ import './styles.css'
 import ItemList from '../ItemList'
 import { collection, query, getDocs, where } from "firebase/firestore";
 import {getFirestoreDb} from '../../lib/firebaseConfig'
-import {useParams} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 import Loading from '../Loading'
 
 const ItemListContainer = () => {
     const db = getFirestoreDb()
+    const history = useHistory()
     const [products, setProducts] = useState([])
     const {categoryId} = useParams()
 
@@ -19,6 +20,7 @@ const ItemListContainer = () => {
             querySnapshot.forEach(doc => {
                 aux.push(doc.data())
             })
+            aux.length < 1 && history.push('/404')
             return aux
         }
         getProductsFirestore().then(productsDb => {
