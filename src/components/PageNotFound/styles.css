@@ -1,0 +1,26 @@
+.container-404{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 60px);
+}
+
+.card-404{
+    text-align: center;
+    width: 500px;
+}
+
+.card-404 h3{
+    font-size: 100px;
+}
+
+.card-404 h5{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.card-404 p{
+    font-size: 16px;
+    margin: 20px 0px;  
+}
